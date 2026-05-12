@@ -1,0 +1,32 @@
+# Reconnaissance Report: google.com
+
+**Mode:** domain  
+**Generated:** 2026-05-12T00:03:07.462294
+
+## WHOIS
+
+| Field | Value |
+|---|---|
+| registrar | MarkMonitor Inc. |
+| registration_date | 1997-09-15T04:00:00Z |
+| expiry_date | 2028-09-14T04:00:00Z |
+| registrant_org | Google LLC |
+
+## DNS Records
+
+**A:** 172.217.29.14
+**MX:** 10 smtp.google.com.
+**NS:** ns2.google.com., ns3.google.com., ns1.google.com., ns4.google.com.
+**TXT:** ;; Warning: Message parser reports malformed message packet., "MS=E4A68B9AB2BB9670BCE15412F62916164C0B20BB", "apple-domain-verification=30afIBcvSuDV2PLX", "docusign=05958488-4752-4ef2-95eb-aa7ba8a3bd0e", "globalsign-smime-dv=CDYX+XFHUw2wml6/Gb8+59BsH31KzUr6c1l2BPvqKX8=", "onetrust-domain-verification=0d477fe608074e6f9c12bca7826035cc", "facebook-domain-verification=22rm551cu4k0ab0bxsw536tlds4h95", "google-site-verification=TV9-DBe4R80X4v0M4U_bd_J9cpOJM0nikft0jAgjmsQ"
+
+## HTTP Headers
+
+| Header | Value |
+|---|---|
+| server | gws |
+| x-frame-options | SAMEORIGIN |
+
+### Missing Security Headers
+
+- `content-security-policy` — **not present**
+- `strict-transport-security` — **not present**
