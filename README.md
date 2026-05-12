@@ -313,7 +313,7 @@ All four user accounts were targeted roughly equally (`root`, `daniel`, `admin`,
 
 A synthetic Apache-format web access log (`access.log`) was generated with approximately 100 requests per hour across 24 hours, with a deliberate spike of 950 requests at 03:00 to test anomaly detection. Attack paths for *SQL injection*, *path traversal*, *XSS*, and *command injection* were embedded at low probability among normal traffic.
 
-<img src="assets/images/17-access-log-generation.png" alt="access.log opened in Mousepad showing Apache Combined Log Format entries" width="70%" height="auto">
+<img src="assets/images/17-access-log-generation.png" alt="access.log opened in Mousepad showing Apache Combined Log Format entries" width="80%" height="auto">
 
 **Figure 17.** `access.log` content — synthetic web access log with 24 hours of traffic and embedded attack patterns.
 
