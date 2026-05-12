@@ -248,7 +248,6 @@ celerybeat.pid
 # =========================================
 **/demos_config/**/files/
 **/demos_config/**/setup_vector_store.mjs
-**/scripts/
 
 # =========================================
 # AI
