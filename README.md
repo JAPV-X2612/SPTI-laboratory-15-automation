@@ -131,7 +131,7 @@ pip freeze > requirements.txt
 
 The lab was conducted on a local network with the *Kali Linux* machine assigned IP `192.168.0.124/24` via DHCP, connected through gateway `192.168.0.1`. This information was used to define the target scope for all network-facing activities in subsequent parts.
 
-![Kali network configuration showing IP 192.168.0.124 and gateway 192.168.0.1](assets/images/01-kali-network-info.png)
+<img src="assets/images/01-kali-network-info.png" alt="Kali network configuration showing IP 192.168.0.124 and gateway 192.168.0.1" width="70%" height="auto">
 
 **Figure 1.** *Kali Linux* network configuration — IP address, subnet mask, and default gateway.
 
@@ -141,7 +141,7 @@ The lab was conducted on a local network with the *Kali Linux* machine assigned 
 
 The baseline sequential scanner was executed against `127.0.0.1` over ports `1–1024`. With no services bound to *localhost* by default, `open_ports` returned empty — confirming the scanner works correctly and that no unexpected services were running. The scan completed in **0.055 seconds**, which reflects minimal I/O wait on a loopback interface with no open ports to handshake.
 
-![Sequential scan result showing 0.055s elapsed and empty open_ports list](assets/images/02-sequential-scan-baseline.png)
+<img src="assets/images/02-sequential-scan-baseline.png" alt="Sequential scan result showing 0.055s elapsed and empty open_ports list" width="70%" height="auto">
 
 **Figure 2.** Sequential scan baseline on `127.0.0.1` — 0.055 s, no open ports.
 
@@ -159,15 +159,15 @@ To generate meaningful results, three `netcat` listeners were opened on ports 44
 
 All three runs correctly identified the three open ports. The marginal time increase at higher concurrency on *localhost* is expected: the loopback interface responds near-instantly, so adding more threads introduces scheduling overhead without reducing wait time. The GIL does not block I/O, but thread creation and context switching have a cost.
 
-![ThreadPoolExecutor scan at rate=50 detecting ports 4444, 8080, 9090 in 1.723s](assets/images/03-threadpool-50-workers.png)
+<img src="assets/images/03-threadpool-50-workers.png" alt="ThreadPoolExecutor scan at rate=50 detecting ports 4444, 8080, 9090 in 1.723s" width="70%" height="auto">
 
 **Figure 3.** Threaded scan — `rate=50`, 1.723 s, ports 4444, 8080, 9090 detected.
 
-![ThreadPoolExecutor scan at rate=200 in 2.812s](assets/images/04-threadpool-200-workers.png)
+<img src="assets/images/04-threadpool-200-workers.png" alt="ThreadPoolExecutor scan at rate=200 in 2.812s" width="70%" height="auto">
 
 **Figure 4.** Threaded scan — `rate=200`, 2.812 s.
 
-![ThreadPoolExecutor scan at rate=500 in 2.893s](assets/images/05-threadpool-500-workers.png)
+<img src="assets/images/05-threadpool-500-workers.png" alt="ThreadPoolExecutor scan at rate=500 in 2.893s" width="70%" height="auto">
 
 **Figure 5.** Threaded scan — `rate=500`, 2.893 s.
 
@@ -185,15 +185,15 @@ The *asyncio* implementation uses a cooperative event loop with `asyncio.Semapho
 
 *Asyncio* consistently outperforms the threaded model because it avoids OS thread overhead entirely, using a single thread with a cooperative scheduler. At `rate=200` it achieved the lowest scan time (1.304 s), confirming that for I/O-bound tasks with high concurrency, the event loop model is more efficient.
 
-![Asyncio scan at rate=50 in 1.409s](assets/images/06-asyncio-50-concurrency.png)
+<img src="assets/images/06-asyncio-50-concurrency.png" alt="Asyncio scan at rate=50 in 1.409s" width="70%" height="auto">
 
 **Figure 6.** *Asyncio* scan — `rate=50`, 1.409 s.
 
-![Asyncio scan at rate=200 in 1.304s](assets/images/07-asyncio-200-concurrency.png)
+<img src="assets/images/07-asyncio-200-concurrency.png" alt="Asyncio scan at rate=200 in 1.304s" width="70%" height="auto">
 
 **Figure 7.** *Asyncio* scan — `rate=200`, 1.304 s — best overall time.
 
-![Asyncio scan at rate=500 in 1.824s — slight overhead increase](assets/images/08-asyncio-500-concurrency.png)
+<img src="assets/images/08-asyncio-500-concurrency.png" alt="Asyncio scan at rate=500 in 1.824s — slight overhead increase" width="70%" height="auto">
 
 **Figure 8.** *Asyncio* scan — `rate=500`, 1.824 s — overhead increases at very high concurrency.
 
@@ -203,7 +203,7 @@ The *asyncio* implementation uses a cooperative event loop with `asyncio.Semapho
 
 The `--output` flag writes structured JSON to disk. The scan targeted specific ports `22,80,443,8080` — all of which were open on the test environment — and produced a well-formed JSON result with timestamp and scan metadata.
 
-![CLI scan with --output flag writing results_scan.json showing ports 22, 80, 443, 8080](assets/images/09-scanner-cli-json-output.png)
+<img src="assets/images/09-scanner-cli-json-output.png" alt="CLI scan with --output flag writing results_scan.json showing ports 22, 80, 443, 8080" width="60%" height="auto">
 
 **Figure 9.** CLI execution with JSON output — ports 22, 80, 443, and 8080 detected on *localhost*.
 
@@ -215,7 +215,7 @@ To demonstrate the false-negative mechanism, 13 `netcat` listeners were opened o
 
 At `rate=2000`, the scanner reported **all ports sequentially** (7001–7022+), which appears as a full list — but at a suspiciously low scan time of **0.035 s**. This indicates the kernel discarded connection attempts silently (EMFILE/ENFILE — file descriptor exhaustion) before they ever reached the target, and the `OSError` was caught and interpreted as "closed." At `rate=200`, only the **13 actual listeners** (7001, 7009, 7017, ...) were reported, correctly.
 
-![Side-by-side comparison: rate=2000 reports all ports sequentially (false positives/negatives), rate=200 correctly reports only the 13 real listeners](assets/images/10-high-concurrency-false-negatives.png)
+<img src="assets/images/10-high-concurrency-false-negatives.png" alt="Side-by-side comparison: rate=2000 reports all ports sequentially (false positives/negatives), rate=200 correctly reports only the 13 real listeners" width="60%" height="auto">
 
 **Figure 10.** High-concurrency false results — `rate=2000` at left produces unreliable output; `rate=200` at right reports only the actual open ports.
 
@@ -231,7 +231,7 @@ An *nmap* service version scan was executed against the local `/24` network usin
 sudo nmap -sV --open -T4 --top-ports 100 -oX scan.xml 192.168.0.0/24
 ```
 
-![nmap scan output listing discovered hosts: 192.168.0.1, 192.168.0.100, 192.168.0.101, 192.168.0.102, 192.168.0.113](assets/images/11-nmap-xml-scan-execution.png)
+<img src="assets/images/11-nmap-xml-scan-execution.png" alt="nmap scan output listing discovered hosts: 192.168.0.1, 192.168.0.100, 192.168.0.101, 192.168.0.102, 192.168.0.113" width="60%" height="auto">
 
 **Figure 11.** *nmap* scan execution — 5 hosts discovered with service version information.
 
@@ -241,7 +241,7 @@ sudo nmap -sV --open -T4 --top-ports 100 -oX scan.xml 192.168.0.0/24
 
 Before writing the parser, the raw `scan.xml` structure was inspected to understand the XML hierarchy. The file reveals the `<nmaprun>` root containing `<host>` elements, each with `<address>`, `<ports>`, and nested `<port>/<service>` nodes — the exact structure targeted by `parse_scan.py`.
 
-![cat scan.xml | head -80 showing the XML structure with nmaprun, hosthint, address, and port elements](assets/images/12-scan-xml-structure-inspection.png)
+<img src="assets/images/12-scan-xml-structure-inspection.png" alt="cat scan.xml | head -80 showing the XML structure with nmaprun, hosthint, address, and port elements" width="60%" height="auto">
 
 **Figure 12.** `scan.xml` structure — *nmap* XML hierarchy with `<hosthint>`, `<address>`, and `<scaninfo>` elements visible.
 
@@ -251,7 +251,7 @@ Before writing the parser, the raw `scan.xml` structure was inspected to underst
 
 `parse_scan.py` was executed using `xml.etree.ElementTree` to parse the XML and extract structured host data. For each host with port 22 open, `ssh-keyscan` was invoked via `subprocess` to retrieve the host key type. In this network, **no host had port 22 open**, so all entries show `ssh_host_key_type: N/A` — a valid and correct result.
 
-![parse_scan.py output: 5 hosts written to hosts.json with IPs, ports, and ssh key N/A](assets/images/13-parse-scan-output-json.png)
+<img src="assets/images/13-parse-scan-output-json.png" alt="parse_scan.py output: 5 hosts written to hosts.json with IPs, ports, and ssh key N/A" width="60%" height="auto">
 
 **Figure 13.** `parse_scan.py` execution — 5 hosts parsed and written to `hosts.json`.
 
@@ -271,7 +271,7 @@ The enriched `hosts.json` file contains structured data for all 5 discovered hos
 
 The two *Hikvision* cameras (192.168.0.100 and 192.168.0.101) expose **RTSP streams on port 554** and camera control interfaces on 8000/8443 — a common attack surface for IoT devices on home networks. The Windows machine at 192.168.0.113 exposes **SMB on port 445**, which is historically associated with exploits such as *EternalBlue*.
 
-![cat hosts.json showing structured JSON output with IP, hostname, open_ports, service, and version fields](assets/images/14-hosts-json-final-output.png)
+<img src="assets/images/14-hosts-json-final-output.png" alt="cat hosts.json showing structured JSON output with IP, hostname, open_ports, service, and version fields" width="60%" height="auto">
 
 **Figure 14.** `hosts.json` — structured enriched output for all 5 network hosts.
 
@@ -283,7 +283,7 @@ The two *Hikvision* cameras (192.168.0.100 and 192.168.0.101) expose **RTSP stre
 
 A synthetic SSH authentication log (`auth.log`) was generated with 500 failed login attempts and 20 successful ones, distributed across 5 source IPs with weighted probabilities to simulate realistic brute-force patterns. The log was opened in *Mousepad* to verify its structure before analysis.
 
-![auth.log opened in Mousepad showing SSH Failed password entries across multiple IPs and users](assets/images/15-auth-log-generation.png)
+<img src="assets/images/15-auth-log-generation.png" alt="auth.log opened in Mousepad showing SSH Failed password entries across multiple IPs and users" width="60%" height="auto">
 
 **Figure 15.** `auth.log` content — synthetic SSH authentication log with 520 entries.
 
@@ -303,7 +303,7 @@ A synthetic SSH authentication log (`auth.log`) was generated with 500 failed lo
 
 All four user accounts were targeted roughly equally (`root`, `daniel`, `admin`, `ubuntu`), which is consistent with automated dictionary attacks that cycle through common usernames regardless of their existence on the target system.
 
-![auth_analysis.py output showing brute-force IPs, targeted usernames, and fail ratio 25.0:1](assets/images/16-auth-analysis-results.png)
+<img src="assets/images/16-auth-analysis-results.png" alt="auth_analysis.py output showing brute-force IPs, targeted usernames, and fail ratio 25.0:1" width="60%" height="auto">
 
 **Figure 16.** `auth_analysis.py` results — brute-force IPs, targeted usernames, and login statistics.
 
@@ -313,7 +313,7 @@ All four user accounts were targeted roughly equally (`root`, `daniel`, `admin`,
 
 A synthetic Apache-format web access log (`access.log`) was generated with approximately 100 requests per hour across 24 hours, with a deliberate spike of 950 requests at 03:00 to test anomaly detection. Attack paths for *SQL injection*, *path traversal*, *XSS*, and *command injection* were embedded at low probability among normal traffic.
 
-![access.log opened in Mousepad showing Apache Combined Log Format entries](assets/images/17-access-log-generation.png)
+<img src="assets/images/17-access-log-generation.png" alt="access.log opened in Mousepad showing Apache Combined Log Format entries" width="60%" height="auto">
 
 **Figure 17.** `access.log` content — synthetic web access log with 24 hours of traffic and embedded attack patterns.
 
@@ -323,7 +323,7 @@ A synthetic Apache-format web access log (`access.log`) was generated with appro
 
 `log_analysis.py` successfully identified all malicious request patterns using the compiled regex engine. The three attack categories detected were *Cross-Site Scripting* (`<script>`), *path traversal* (`../../../etc/passwd`), and *command injection* (`cmd=id`). Notably, several attacks returned **HTTP 200** — meaning the server processed them without blocking, which in a real scenario would indicate a critical misconfiguration.
 
-![log_analysis.py attack pattern matches showing XSS, path traversal, and command injection with HTTP status codes](assets/images/18-log-analysis-attack-patterns.png)
+<img src="assets/images/18-log-analysis-attack-patterns.png" alt="log_analysis.py attack pattern matches showing XSS, path traversal, and command injection with HTTP status codes" width="60%" height="auto">
 
 **Figure 18.** Attack pattern detection — XSS, path traversal, and command injection attempts identified across multiple source IPs.
 
@@ -333,11 +333,11 @@ A synthetic Apache-format web access log (`access.log`) was generated with appro
 
 The top 5 IPs by request volume were identified, with `10.0.0.1` generating over **1,753 requests** — significantly more than any other source. The HTTP status distribution shows a healthy server (`200: 3049`) with relatively few blocked requests (`403: 45`) and server errors (`500: 43`).
 
-![Top 5 IPs showing 10.0.0.1 with 1753 requests at the top](assets/images/19-log-analysis-top-ips.png)
+<img src="assets/images/19-log-analysis-top-ips.png" alt="Top 5 IPs showing 10.0.0.1 with 1753 requests at the top" width="60%" height="auto">
 
 **Figure 19.** Top 5 IPs by request volume — `10.0.0.1` dominates with 1,753 requests.
 
-![HTTP Status Distribution: 200=3049, 403=45, 500=43](assets/images/20-log-analysis-status-distribution.png)
+<img src="assets/images/20-log-analysis-status-distribution.png" alt="HTTP Status Distribution: 200=3049, 403=45, 500=43" width="60%" height="auto">
 
 **Figure 20.** HTTP status distribution — 3,049 successful responses, 45 forbidden, 43 server errors.
 
@@ -347,7 +347,7 @@ The top 5 IPs by request volume were identified, with `10.0.0.1` generating over
 
 The statistical anomaly detector computed the **mean** and **standard deviation** of hourly request counts across the 24-hour window and flagged any hour exceeding the `mean + 3σ` threshold. The 03:00 spike of 939 requests was detected with a **z-score of 4.7σ** — well above the 3.0σ threshold — and correctly identified as anomalous.
 
-![Anomalous Hours output: [ANOMALY] 11/May/2026-03h: 939 requests (z=4.7σ, threshold=3.0σ)](assets/images/21-anomaly-detection-spike-output.png)
+<img src="assets/images/21-anomaly-detection-spike-output.png" alt="Anomalous Hours output: [ANOMALY] 11/May/2026-03h: 939 requests (z=4.7σ, threshold=3.0σ)" width="60%" height="auto">
 
 **Figure 21.** 3σ anomaly detection — the 03:00 traffic spike flagged at z=4.7σ.
 
@@ -357,7 +357,7 @@ The statistical anomaly detector computed the **mean** and **standard deviation*
 
 `log_analysis.py` automatically generated `report.md` combining SSH brute-force findings and web access log analysis into a single structured document, ready for delivery as a security report. The file includes all tables, attack pattern matches, and the anomaly alert.
 
-![cat report.md showing the combined Security Log Analysis Report with SSH and web sections](assets/images/22-combined-report-md-preview.png)
+<img src="assets/images/22-combined-report-md-preview.png" alt="cat report.md showing the combined Security Log Analysis Report with SSH and web sections" width="60%" height="auto">
 
 **Figure 22.** Combined `report.md` — structured security log analysis report generated automatically.
 
@@ -369,7 +369,7 @@ The statistical anomaly detector computed the **mean** and **standard deviation*
 
 `recon.py` was executed in domain mode against `google.com` with the `--verbose` flag. The tool ran four sequential stages — *WHOIS*, *DNS* record enumeration (A, MX, NS, TXT), *HTTP header* extraction, and *Markdown* report generation — each logged to `audit.log`. The entire pipeline completed in under **2 seconds**.
 
-![recon.py domain mode execution showing [*] progress messages for WHOIS, DNS, HTTP headers, and report generation, ending with [+] Done](assets/images/23-recon-domain-mode-run.png)
+<img src="assets/images/23-recon-domain-mode-run.png" alt="recon.py domain mode execution showing [*] progress messages for WHOIS, DNS, HTTP headers, and report generation, ending with [+] Done" width="60%" height="auto">
 
 **Figure 23.** `recon.py` domain mode — progressive execution with verbose output for `google.com`.
 
@@ -379,7 +379,7 @@ The statistical anomaly detector computed the **mean** and **standard deviation*
 
 `recon.py` was executed in IP mode against the local gateway (`192.168.0.1`). The tool ran *nmap* with `--top-ports 100 -sV`, a reverse DNS lookup, and *WHOIS* on the IP, then generated a structured report. Each step ran independently — a failure in any probe would not halt the pipeline.
 
-![recon.py IP mode execution showing nmap scan, reverse DNS, WHOIS, and report generation steps](assets/images/24-recon-ip-mode-run.png)
+<img src="assets/images/24-recon-ip-mode-run.png" alt="recon.py IP mode execution showing nmap scan, reverse DNS, WHOIS, and report generation steps" width="60%" height="auto">
 
 **Figure 24.** `recon.py` IP mode — pipeline execution against gateway `192.168.0.1`.
 
@@ -404,7 +404,7 @@ The structured `results.json` for `google.com` captures all findings as a single
 
 The TXT records reveal domain verification tokens for *Apple*, *DocuSign*, *GlobalSign*, *Facebook*, *OneTrust*, and *Google* itself — a rich intelligence dataset that can be used to map an organization's third-party integrations without sending a single additional packet.
 
-![recon_google_com directory listing and cat results.json showing WHOIS, DNS A/MX/NS/TXT records, and HTTP headers](assets/images/25-recon-results-json.png)
+<img src="assets/images/25-recon-results-json.png" alt="recon_google_com directory listing and cat results.json showing WHOIS, DNS A/MX/NS/TXT records, and HTTP headers" width="60%" height="auto">
 
 **Figure 25.** `results.json` — structured reconnaissance output for `google.com`.
 
@@ -414,7 +414,7 @@ The TXT records reveal domain verification tokens for *Apple*, *DocuSign*, *Glob
 
 The auto-generated `report.md` presents all findings in human-readable Markdown, including a WHOIS table, DNS records summary, HTTP headers table, and a **missing security headers** section. The absence of `Content-Security-Policy` and `Strict-Transport-Security` headers on Google's HTTP endpoint (port 80) is flagged — though in production these are enforced via HTTPS redirect and *HSTS preloading*.
 
-![cat recon_google_com/report.md showing WHOIS table, DNS records, HTTP headers, and missing security headers section](assets/images/26-recon-report-md.png)
+<img src="assets/images/26-recon-report-md.png" alt="cat recon_google_com/report.md showing WHOIS table, DNS records, HTTP headers, and missing security headers section" width="60%" height="auto">
 
 **Figure 26.** Reconnaissance `report.md` — auto-generated from `results.json`.
 
@@ -424,7 +424,7 @@ The auto-generated `report.md` presents all findings in human-readable Markdown,
 
 Every action performed by `recon.py` was recorded in `audit.log` with millisecond-precision timestamps. The log shows the exact command executed, its exit code, and the sequence of tool invocations — providing a complete, non-repudiable record of the reconnaissance activity. The full pipeline for `google.com` ran from `00:03:05` to `00:03:07` — **1.69 seconds** end to end.
 
-![cat audit.log showing timestamped entries for START recon, RUN: whois, RUN: dig commands, RUN: curl, and END recon](assets/images/27-recon-audit-log.png)
+<img src="assets/images/27-recon-audit-log.png" alt="cat audit.log showing timestamped entries for START recon, RUN: whois, RUN: dig commands, RUN: curl, and END recon" width="60%" height="auto">
 
 **Figure 27.** `audit.log` — complete timestamped record of all tool invocations and their exit codes.
 
@@ -479,7 +479,7 @@ A single global baseline computed over 24 hours conflates fundamentally differen
 
 This laboratory fundamentally changed how I think about the relationship between programming and security. Before this lab, scripting felt like a utility — something to avoid repetitive typing. After building the port scanner from scratch and watching `asyncio` outperform *threading* by handling the same 10,000 ports in less time with a single thread, I understood concurrency not as a language feature but as an architectural decision with real operational consequences. The false-negative experiment was particularly striking: the scanner reported confidently incorrect results at `--rate 2000`, and the only way to know that was to understand what was happening at the OS socket level. This dual perspective — building the tool and knowing how to break it — is something no checklist-driven approach can teach. I also gained a new appreciation for the **audit log requirement** in Part 4. In a real engagement, that timestamped record is not a formality; it is legal protection and the foundation of reproducibility.
 
-### David Felipe Velásquez Contreras — [@DavidVCAI](https://github.com/DavidVCAI)
+### David Velásquez — [@DavidVCAI](https://github.com/DavidVCAI)
 
 What this lab made viscerally real for me was the **composability principle**: how a 15-line XML parser connects an *nmap* scan to a structured JSON file that feeds a Markdown report in under two seconds. The reconnaissance pipeline in Part 4 is not a toy — strip out the target restrictions and it is functionally equivalent to tools used in professional engagements. The log analysis section reinforced something I had only understood theoretically before: that **statistics is a security tool**. The 3σ detector found the artificial traffic spike at 03:00 not because it knew what an attack looks like, but because it knew what *normal* looks like. That inversion — defining anomaly through baseline rather than through signatures — is the conceptual foundation of behavioral analytics and modern *SIEM* systems. Building it from twelve lines of Python made the concept stick in a way that no lecture could.
 
@@ -493,7 +493,7 @@ What this lab made viscerally real for me was the **composability principle**: h
       <a href="https://github.com/JAPV-X2612">
         <img src="https://github.com/JAPV-X2612.png" width="100px;" alt="Jesús Pinzón"/>
         <br />
-        <sub><b>Jesús Alfonso Pinzón Vega</b></sub>
+        <sub><b>Jesús Pinzón</b></sub>
       </a>
       <br />
       <sub>Systems Engineering Student</sub>
@@ -502,7 +502,7 @@ What this lab made viscerally real for me was the **composability principle**: h
       <a href="https://github.com/DavidVCAI">
         <img src="https://github.com/DavidVCAI.png" width="100px;" alt="David Velásquez"/>
         <br />
-        <sub><b>David Felipe Velásquez Contreras</b></sub>
+        <sub><b>David Velásquez</b></sub>
       </a>
       <br />
       <sub>Systems Engineering Student</sub>
