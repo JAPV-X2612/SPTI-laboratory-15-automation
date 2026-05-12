@@ -159,15 +159,15 @@ To generate meaningful results, three `netcat` listeners were opened on ports 44
 
 All three runs correctly identified the three open ports. The marginal time increase at higher concurrency on *localhost* is expected: the loopback interface responds near-instantly, so adding more threads introduces scheduling overhead without reducing wait time. The GIL does not block I/O, but thread creation and context switching have a cost.
 
-<img src="assets/images/03-threadpool-50-workers.png" alt="ThreadPoolExecutor scan at rate=50 detecting ports 4444, 8080, 9090 in 1.723s" width="70%" height="auto">
+<img src="assets/images/03-threadpool-50-workers.png" alt="ThreadPoolExecutor scan at rate=50 detecting ports 4444, 8080, 9090 in 1.723s" width="80%" height="auto">
 
 **Figure 3.** Threaded scan — `rate=50`, 1.723 s, ports 4444, 8080, 9090 detected.
 
-<img src="assets/images/04-threadpool-200-workers.png" alt="ThreadPoolExecutor scan at rate=200 in 2.812s" width="70%" height="auto">
+<img src="assets/images/04-threadpool-200-workers.png" alt="ThreadPoolExecutor scan at rate=200 in 2.812s" width="80%" height="auto">
 
 **Figure 4.** Threaded scan — `rate=200`, 2.812 s.
 
-<img src="assets/images/05-threadpool-500-workers.png" alt="ThreadPoolExecutor scan at rate=500 in 2.893s" width="70%" height="auto">
+<img src="assets/images/05-threadpool-500-workers.png" alt="ThreadPoolExecutor scan at rate=500 in 2.893s" width="80%" height="auto">
 
 **Figure 5.** Threaded scan — `rate=500`, 2.893 s.
 
@@ -185,15 +185,15 @@ The *asyncio* implementation uses a cooperative event loop with `asyncio.Semapho
 
 *Asyncio* consistently outperforms the threaded model because it avoids OS thread overhead entirely, using a single thread with a cooperative scheduler. At `rate=200` it achieved the lowest scan time (1.304 s), confirming that for I/O-bound tasks with high concurrency, the event loop model is more efficient.
 
-<img src="assets/images/06-asyncio-50-concurrency.png" alt="Asyncio scan at rate=50 in 1.409s" width="70%" height="auto">
+<img src="assets/images/06-asyncio-50-concurrency.png" alt="Asyncio scan at rate=50 in 1.409s" width="80%" height="auto">
 
 **Figure 6.** *Asyncio* scan — `rate=50`, 1.409 s.
 
-<img src="assets/images/07-asyncio-200-concurrency.png" alt="Asyncio scan at rate=200 in 1.304s" width="70%" height="auto">
+<img src="assets/images/07-asyncio-200-concurrency.png" alt="Asyncio scan at rate=200 in 1.304s" width="80%" height="auto">
 
 **Figure 7.** *Asyncio* scan — `rate=200`, 1.304 s — best overall time.
 
-<img src="assets/images/08-asyncio-500-concurrency.png" alt="Asyncio scan at rate=500 in 1.824s — slight overhead increase" width="70%" height="auto">
+<img src="assets/images/08-asyncio-500-concurrency.png" alt="Asyncio scan at rate=500 in 1.824s — slight overhead increase" width="80%" height="auto">
 
 **Figure 8.** *Asyncio* scan — `rate=500`, 1.824 s — overhead increases at very high concurrency.
 
