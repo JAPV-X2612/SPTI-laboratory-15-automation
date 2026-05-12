@@ -1,11 +1,5 @@
 # 🔐 Laboratory 15 — Security Automation
 
-**Course:** IT Security and Privacy (SPTI)
-
-**Institution:** Universidad Escuela Colombiana de Ingeniería Julio Garavito (UECIJG)
-
-**Professor:** Ing. Daniel Esteban Vela López
-
 ---
 
 ## 📋 Table of Contents
