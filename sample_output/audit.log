@@ -1,0 +1,18 @@
+2026-05-12 00:03:05,773 [INFO] START recon — target=google.com mode=domain
+2026-05-12 00:03:05,774 [INFO] Running WHOIS...
+2026-05-12 00:03:05,774 [INFO] RUN: whois google.com
+2026-05-12 00:03:06,638 [INFO] OK (exit=0)
+2026-05-12 00:03:06,639 [INFO] Querying DNS records...
+2026-05-12 00:03:06,639 [INFO] RUN: dig +short A google.com
+2026-05-12 00:03:06,761 [INFO] OK (exit=0)
+2026-05-12 00:03:06,761 [INFO] RUN: dig +short MX google.com
+2026-05-12 00:03:06,810 [INFO] OK (exit=0)
+2026-05-12 00:03:06,810 [INFO] RUN: dig +short NS google.com
+2026-05-12 00:03:06,920 [INFO] OK (exit=0)
+2026-05-12 00:03:06,920 [INFO] RUN: dig +short TXT google.com
+2026-05-12 00:03:07,089 [INFO] OK (exit=0)
+2026-05-12 00:03:07,089 [INFO] Fetching HTTP headers...
+2026-05-12 00:03:07,089 [INFO] RUN: curl -sI --max-time 10 http://google.com
+2026-05-12 00:03:07,461 [INFO] OK (exit=0)
+2026-05-12 00:03:07,462 [INFO] Generating Markdown report...
+2026-05-12 00:03:07,463 [INFO] END recon — outputs in recon_google_com_20260512_000305/

@@ -1,0 +1,112 @@
+[
+  {
+    "ip": "192.168.0.1",
+    "hostname": "",
+    "open_ports": [
+      {
+        "port": 80,
+        "service": "http",
+        "version": "GoAhead WebServer"
+      }
+    ]
+  },
+  {
+    "ip": "192.168.0.100",
+    "hostname": "",
+    "open_ports": [
+      {
+        "port": 80,
+        "service": "http",
+        "version": "webserver"
+      },
+      {
+        "port": 443,
+        "service": "tcpwrapped",
+        "version": ""
+      },
+      {
+        "port": 554,
+        "service": "rtsp",
+        "version": "Hikvision 7513 POE IP camera rtspd"
+      },
+      {
+        "port": 8000,
+        "service": "hik-connect",
+        "version": "HikVision camera control"
+      },
+      {
+        "port": 8443,
+        "service": "hik-connect",
+        "version": "HikVision camera control"
+      }
+    ]
+  },
+  {
+    "ip": "192.168.0.101",
+    "hostname": "",
+    "open_ports": [
+      {
+        "port": 80,
+        "service": "http",
+        "version": "webserver"
+      },
+      {
+        "port": 443,
+        "service": "tcpwrapped",
+        "version": ""
+      },
+      {
+        "port": 554,
+        "service": "rtsp",
+        "version": "Hikvision 7513 POE IP camera rtspd"
+      },
+      {
+        "port": 8000,
+        "service": "hik-connect",
+        "version": "HikVision camera control"
+      },
+      {
+        "port": 8443,
+        "service": "hik-connect",
+        "version": "HikVision camera control"
+      }
+    ]
+  },
+  {
+    "ip": "192.168.0.102",
+    "hostname": "",
+    "open_ports": [
+      {
+        "port": 5000,
+        "service": "rtsp",
+        "version": ""
+      }
+    ]
+  },
+  {
+    "ip": "192.168.0.113",
+    "hostname": "",
+    "open_ports": [
+      {
+        "port": 135,
+        "service": "msrpc",
+        "version": "Microsoft Windows RPC"
+      },
+      {
+        "port": 139,
+        "service": "netbios-ssn",
+        "version": "Microsoft Windows netbios-ssn"
+      },
+      {
+        "port": 445,
+        "service": "microsoft-ds",
+        "version": ""
+      },
+      {
+        "port": 5357,
+        "service": "http",
+        "version": "Microsoft HTTPAPI httpd 2.0"
+      }
+    ]
+  }
+]

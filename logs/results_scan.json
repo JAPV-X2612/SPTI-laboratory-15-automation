@@ -1,0 +1,13 @@
+{
+  "target": "127.0.0.1",
+  "mode": "async",
+  "rate": 200,
+  "scan_time_seconds": 0.003,
+  "timestamp": "2026-05-11T23:22:00",
+  "open_ports": [
+    22,
+    80,
+    443,
+    8080
+  ]
+}

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.99 scan initiated Mon May 11 23:42:49 2026 as: /usr/lib/nmap/nmap -sV -&#45;open -T4 -&#45;top-ports 100 -oX scan.xml 192.168.0.0/24 -->
+<nmaprun scanner="nmap" args="/usr/lib/nmap/nmap -sV -&#45;open -T4 -&#45;top-ports 100 -oX scan.xml 192.168.0.0/24" start="1778557369" startstr="Mon May 11 23:42:49 2026" version="7.99" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="100" services="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.1" addrtype="ipv4"/>
+<address addr="D8:32:14:E3:66:60" addrtype="mac" vendor="Tenda Technology,Ltd.Dongguan branch"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.113" addrtype="ipv4"/>
+<address addr="50:3E:AA:D8:D4:E9" addrtype="mac" vendor="TP-Link Technologies"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.100" addrtype="ipv4"/>
+<address addr="E0:BA:AD:31:9E:70" addrtype="mac" vendor="Hangzhou Hikvision Digital Technology"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.101" addrtype="ipv4"/>
+<address addr="E0:BA:AD:1E:E4:26" addrtype="mac" vendor="Hangzhou Hikvision Digital Technology"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.102" addrtype="ipv4"/>
+<address addr="06:4F:AA:E4:27:E3" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.112" addrtype="ipv4"/>
+<address addr="92:0F:0D:DC:78:88" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.110" addrtype="ipv4"/>
+<address addr="CA:1B:A0:BE:BC:C8" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1778557373" endtime="1778557515"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.1" addrtype="ipv4"/>
+<address addr="D8:32:14:E3:66:60" addrtype="mac" vendor="Tenda Technology,Ltd.Dongguan branch"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="99">
+<extrareasons reason="reset" count="99" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79,81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="GoAhead WebServer" method="probed" conf="10"><cpe>cpe:/a:goahead:goahead_webserver</cpe></service></port>
+</ports>
+<times srtt="18739" rttvar="6232" to="100000"/>
+</host>
+<host starttime="1778557373" endtime="1778557516"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.100" addrtype="ipv4"/>
+<address addr="E0:BA:AD:31:9E:70" addrtype="mac" vendor="Hangzhou Hikvision Digital Technology"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="95">
+<extrareasons reason="reset" count="95" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79,81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,444-445,465,513-515,543-544,548,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8008-8009,8080-8081,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="webserver" servicefp="SF-Port80-TCP:V=7.99%I=7%D=5/11%Time=6A02A1C5%P=x86_64-pc-linux-gnu%r(GetRequest,250,&quot;HTTP/1\.0\x20404\x20Not\x20Found\r\nDate:\x20Mon,\x2011\x20May\x202026\x2022:42:59\x20GMT\r\nServer:\x20webserver\r\nX-Frame-Options:\x20SAMEORIGIN\r\nContent-Security-Policy:\x20default-src\x20&apos;self&apos;;frame-ancestors\x20&apos;self&apos;\r\nX-Content-Type-Options:\x20nosniff\r\nX-XSS-Protection:\x201;\x20mode=block\r\nReferrer-Policy:\x20no-referrer\r\nX-Download-Options:\x20noopen\r\nX-Permitted-Cross-Domain-Policies:\x20master-only\r\nContent-Length:\x20176\r\nContent-Type:\x20text/html\r\nConnection:\x20close\r\n\r\n&lt;!DOCTYPE\x20html&gt;\r\n&lt;html&gt;&lt;head&gt;&lt;title&gt;Document\x20Error:\x20Not\x20Found&lt;/title&gt;&lt;/head&gt;\r\n&lt;body&gt;&lt;h2&gt;Access\x20Error:\x20404\x20-&#45;\x20Not\x20Found&lt;/h2&gt;\r\n&lt;p&gt;Can&apos;t\x20locate\x20document:\x20/&lt;/p&gt;\r\n&lt;/body&gt;\r\n&lt;/html&gt;\r\n&quot;)%r(HTTPOptions,23F,&quot;HTTP/1\.0\x20406\x20Not\x20Acceptable\r\nDate:\x20Mon,\x2011\x20May\x202026\x2022:43:00\x20GMT\r\nServer:\x20webserver\r\nX-Frame-Options:\x20SAMEORIGIN\r\nContent-Security-Policy:\x20default-src\x20&apos;self&apos;;frame-ancestors\x20&apos;self&apos;\r\nX-Content-Type-Options:\x20nosniff\r\nX-XSS-Protection:\x201;\x20mode=block\r\nReferrer-Policy:\x20no-referrer\r\nX-Download-Options:\x20noopen\r\nX-Permitted-Cross-Domain-Policies:\x20master-only\r\nContent-Length:\x20154\r\nContent-Type:\x20text/html\r\nConnection:\x20close\r\n\r\n&lt;!DOCTYPE\x20html&gt;\r\n&lt;html&gt;&lt;head&gt;&lt;title&gt;Option\x20Request\x20Denied&lt;/title&gt;&lt;/head&gt;\r\n&lt;body&gt;\r\n&lt;p&gt;The\x20OPTION\x20method\x20is\x20disabled\x20on\x20this\x20server\.&lt;/p&gt;\r\n&lt;/body&gt;\r\n&lt;/html&gt;\r\n&quot;)%r(FourOhFourRequest,26B,&quot;HTTP/1\.0\x20404\x20Not\x20Found\r\nDate:\x20Mon,\x2011\x20May\x202026\x2022:43:05\x20GMT\r\nServer:\x20webserver\r\nX-Frame-Options:\x20SAMEORIGIN\r\nContent-Security-Policy:\x20default-src\x20&apos;self&apos;;frame-ancestors\x20&apos;self&apos;\r\nX-Content-Type-Options:\x20nosniff\r\nX-XSS-Protection:\x201;\x20mode=block\r\nReferrer-Policy:\x20no-referrer\r\nX-Download-Options:\x20noopen\r\nX-Permitted-Cross-Domain-Policies:\x20master-only\r\nContent-Length:\x20203\r\nContent-Type:\x20text/html\r\nConnection:\x20close\r\n\r\n&lt;!DOCTYPE\x20html&gt;\r\n&lt;html&gt;&lt;head&gt;&lt;title&gt;Document\x20Error:\x20Not\x20Found&lt;/title&gt;&lt;/head&gt;\r\n&lt;body&gt;&lt;h2&gt;Access\x20Error:\x20404\x20-&#45;\x20Not\x20Found&lt;/h2&gt;\r\n&lt;p&gt;Can&apos;t\x20locate\x20document:\x20/nice\x20ports,/Trinity\.txt\.bak&lt;/p&gt;\r\n&lt;/body&gt;\r\n&lt;/html&gt;\r\n&quot;);" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="tcpwrapped" method="probed" conf="8"/></port>
+<port protocol="tcp" portid="554"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="rtsp" product="Hikvision 7513 POE IP camera rtspd" devicetype="webcam" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="8000"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="hik-connect" product="HikVision camera control" devicetype="webcam" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="8443"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="hik-connect" product="HikVision camera control" devicetype="webcam" tunnel="ssl" method="probed" conf="10"/></port>
+</ports>
+<times srtt="43967" rttvar="4270" to="100000"/>
+</host>
+<host starttime="1778557373" endtime="1778557516"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.101" addrtype="ipv4"/>
+<address addr="E0:BA:AD:1E:E4:26" addrtype="mac" vendor="Hangzhou Hikvision Digital Technology"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="95">
+<extrareasons reason="reset" count="95" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79,81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,444-445,465,513-515,543-544,548,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8008-8009,8080-8081,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="255"/><service name="http" product="webserver" servicefp="SF-Port80-TCP:V=7.99%I=7%D=5/11%Time=6A02A1C5%P=x86_64-pc-linux-gnu%r(GetRequest,250,&quot;HTTP/1\.0\x20404\x20Not\x20Found\r\nDate:\x20Mon,\x2011\x20May\x202026\x2022:43:00\x20GMT\r\nServer:\x20webserver\r\nX-Frame-Options:\x20SAMEORIGIN\r\nContent-Security-Policy:\x20default-src\x20&apos;self&apos;;frame-ancestors\x20&apos;self&apos;\r\nX-Content-Type-Options:\x20nosniff\r\nX-XSS-Protection:\x201;\x20mode=block\r\nReferrer-Policy:\x20no-referrer\r\nX-Download-Options:\x20noopen\r\nX-Permitted-Cross-Domain-Policies:\x20master-only\r\nContent-Length:\x20176\r\nContent-Type:\x20text/html\r\nConnection:\x20close\r\n\r\n&lt;!DOCTYPE\x20html&gt;\r\n&lt;html&gt;&lt;head&gt;&lt;title&gt;Document\x20Error:\x20Not\x20Found&lt;/title&gt;&lt;/head&gt;\r\n&lt;body&gt;&lt;h2&gt;Access\x20Error:\x20404\x20-&#45;\x20Not\x20Found&lt;/h2&gt;\r\n&lt;p&gt;Can&apos;t\x20locate\x20document:\x20/&lt;/p&gt;\r\n&lt;/body&gt;\r\n&lt;/html&gt;\r\n&quot;)%r(HTTPOptions,23F,&quot;HTTP/1\.0\x20406\x20Not\x20Acceptable\r\nDate:\x20Mon,\x2011\x20May\x202026\x2022:43:00\x20GMT\r\nServer:\x20webserver\r\nX-Frame-Options:\x20SAMEORIGIN\r\nContent-Security-Policy:\x20default-src\x20&apos;self&apos;;frame-ancestors\x20&apos;self&apos;\r\nX-Content-Type-Options:\x20nosniff\r\nX-XSS-Protection:\x201;\x20mode=block\r\nReferrer-Policy:\x20no-referrer\r\nX-Download-Options:\x20noopen\r\nX-Permitted-Cross-Domain-Policies:\x20master-only\r\nContent-Length:\x20154\r\nContent-Type:\x20text/html\r\nConnection:\x20close\r\n\r\n&lt;!DOCTYPE\x20html&gt;\r\n&lt;html&gt;&lt;head&gt;&lt;title&gt;Option\x20Request\x20Denied&lt;/title&gt;&lt;/head&gt;\r\n&lt;body&gt;\r\n&lt;p&gt;The\x20OPTION\x20method\x20is\x20disabled\x20on\x20this\x20server\.&lt;/p&gt;\r\n&lt;/body&gt;\r\n&lt;/html&gt;\r\n&quot;)%r(FourOhFourRequest,26B,&quot;HTTP/1\.0\x20404\x20Not\x20Found\r\nDate:\x20Mon,\x2011\x20May\x202026\x2022:43:05\x20GMT\r\nServer:\x20webserver\r\nX-Frame-Options:\x20SAMEORIGIN\r\nContent-Security-Policy:\x20default-src\x20&apos;self&apos;;frame-ancestors\x20&apos;self&apos;\r\nX-Content-Type-Options:\x20nosniff\r\nX-XSS-Protection:\x201;\x20mode=block\r\nReferrer-Policy:\x20no-referrer\r\nX-Download-Options:\x20noopen\r\nX-Permitted-Cross-Domain-Policies:\x20master-only\r\nContent-Length:\x20203\r\nContent-Type:\x20text/html\r\nConnection:\x20close\r\n\r\n&lt;!DOCTYPE\x20html&gt;\r\n&lt;html&gt;&lt;head&gt;&lt;title&gt;Document\x20Error:\x20Not\x20Found&lt;/title&gt;&lt;/head&gt;\r\n&lt;body&gt;&lt;h2&gt;Access\x20Error:\x20404\x20-&#45;\x20Not\x20Found&lt;/h2&gt;\r\n&lt;p&gt;Can&apos;t\x20locate\x20document:\x20/nice\x20ports,/Trinity\.txt\.bak&lt;/p&gt;\r\n&lt;/body&gt;\r\n&lt;/html&gt;\r\n&quot;);" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="255"/><service name="tcpwrapped" method="probed" conf="8"/></port>
+<port protocol="tcp" portid="554"><state state="open" reason="syn-ack" reason_ttl="255"/><service name="rtsp" product="Hikvision 7513 POE IP camera rtspd" devicetype="webcam" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="8000"><state state="open" reason="syn-ack" reason_ttl="255"/><service name="hik-connect" product="HikVision camera control" devicetype="webcam" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="8443"><state state="open" reason="syn-ack" reason_ttl="255"/><service name="hik-connect" product="HikVision camera control" devicetype="webcam" tunnel="ssl" method="probed" conf="10"/></port>
+</ports>
+<times srtt="34908" rttvar="5829" to="100000"/>
+</host>
+<host starttime="1778557373" endtime="1778557515"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.102" addrtype="ipv4"/>
+<address addr="06:4F:AA:E4:27:E3" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="99">
+<extrareasons reason="reset" count="99" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="5000"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="rtsp" servicefp="SF-Port5000-TCP:V=7.99%I=7%D=5/11%Time=6A02A1C5%P=x86_64-pc-linux-gnu%r(GetRequest,8F,&quot;HTTP/1\.1\x20403\x20Forbidden\r\nContent-Length:\x200\r\nServer:\x20AirTunes/935\.7\.1\r\nX-Apple-ProcessingTime:\x204\r\nX-Apple-RequestReceivedTimestamp:\x20270530515\r\n\r\n&quot;)%r(RTSPRequest,8F,&quot;RTSP/1\.0\x20403\x20Forbidden\r\nContent-Length:\x200\r\nServer:\x20AirTunes/935\.7\.1\r\nX-Apple-ProcessingTime:\x203\r\nX-Apple-RequestReceivedTimestamp:\x20270530555\r\n\r\n&quot;)%r(HTTPOptions,8F,&quot;HTTP/1\.1\x20403\x20Forbidden\r\nContent-Length:\x200\r\nServer:\x20AirTunes/935\.7\.1\r\nX-Apple-ProcessingTime:\x204\r\nX-Apple-RequestReceivedTimestamp:\x20270535616\r\n\r\n&quot;)%r(FourOhFourRequest,8F,&quot;HTTP/1\.1\x20403\x20Forbidden\r\nContent-Length:\x200\r\nServer:\x20AirTunes/935\.7\.1\r\nX-Apple-ProcessingTime:\x203\r\nX-Apple-RequestReceivedTimestamp:\x20270535645\r\n\r\n&quot;)%r(SIPOptions,A1,&quot;RTSP/1\.0\x20403\x20Forbidden\r\nContent-Length:\x200\r\nServer:\x20AirTunes/935\.7\.1\r\nCSeq:\x2042\x20OPTIONS\r\nX-Apple-ProcessingTime:\x203\r\nX-Apple-RequestReceivedTimestamp:\x20270535675\r\n\r\n&quot;);" method="probed" conf="10"/></port>
+</ports>
+<times srtt="44094" rttvar="8425" to="100000"/>
+</host>
+<host starttime="1778557373" endtime="1778557515"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.113" addrtype="ipv4"/>
+<address addr="50:3E:AA:D8:D4:E9" addrtype="mac" vendor="TP-Link Technologies"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="filtered" count="96">
+<extrareasons reason="no-response" count="96" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,143-144,179,199,389,427,443-444,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="135"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="msrpc" product="Microsoft Windows RPC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="139"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="netbios-ssn" product="Microsoft Windows netbios-ssn" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="microsoft-ds" method="table" conf="3"/></port>
+<port protocol="tcp" portid="5357"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="http" product="Microsoft HTTPAPI httpd" version="2.0" extrainfo="SSDP/UPnP" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+</ports>
+<times srtt="637" rttvar="1798" to="100000"/>
+</host>
+<runstats><finished time="1778557527" timestr="Mon May 11 23:45:27 2026" summary="Nmap done at Mon May 11 23:45:27 2026; 256 IP addresses (8 hosts up) scanned in 157.91 seconds" elapsed="157.91" exit="success"/><hosts up="8" down="248" total="256"/>
+</runstats>
+</nmaprun>
