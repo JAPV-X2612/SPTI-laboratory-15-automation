@@ -208,12 +208,10 @@ credentials.json
 # =========================================
 # Logs & Temporary Files
 # =========================================
-*.log
 *.tmp
 *.bak
 *.swp
 *.swo
-logs/
 tmp/
 temp/
 DELETE/
